@@ -16,4 +16,5 @@ jobs:
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           CUSTOM_DOMAIN: docs.gajdusek.dev
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
