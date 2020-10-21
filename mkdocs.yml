@@ -1,1 +1,10 @@
-site_name: My Docs
+site_name: ogajduse's docs
+site_description: 'Personal documentation site containging mostly braindumps.'
+site_author: 'Ondřej Gajdušek'
+docs_dir: docs/
+repo_name: 'ogajduse/docs.gajdusek.dev'
+repo_url: 'https://github.com/ogajduse/docs.gajdusek.dev'
+nav:
+    - Home: index.md
+theme:
+  name: 'mkdocs'
