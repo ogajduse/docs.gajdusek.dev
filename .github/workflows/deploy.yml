@@ -12,9 +12,14 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v1
 
+      - name: Pre Commit Checks
+        uses: pre-commit/action@v2.0.0
+
+      - name: Build mkdocs pages
+        uses: jnanadarshan/mkdocs-build-action@v0.24
+
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           CUSTOM_DOMAIN: docs.gajdusek.dev
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
