@@ -12,11 +12,18 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v1
 
+      - name: Set Up Python-3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
       - name: Pre Commit Checks
         uses: pre-commit/action@v2.0.0
 
       - name: Build mkdocs pages
-        uses: jnanadarshan/mkdocs-build-action@v0.24
+        run: |
+          pip install mkdocs-material
+          mkdocs build --clean --strict --verbose
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
