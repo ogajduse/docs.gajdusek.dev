@@ -9,5 +9,7 @@ nav:
   - Bash Help: bash_help.md
   - Linux Commands: linux-commands.md
   - RPM Packaging: rpm-packaging.md
+  - Monitoring:
+      - Graphite: monitoring/graphite.md
 theme:
   name: "material"
