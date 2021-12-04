@@ -8,8 +8,15 @@ nav:
   - Home: index.md
   - Bash Help: bash_help.md
   - Linux Commands: linux-commands.md
-  - RPM Packaging: rpm-packaging.md
   - Monitoring:
       - Graphite: monitoring/graphite.md
+  - Packaging:
+      - Getting packages from repository manually: packaging/getting-repo-packages.md
+      - RPM Packaging: packaging/rpm-packaging.md
 theme:
   name: "material"
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
