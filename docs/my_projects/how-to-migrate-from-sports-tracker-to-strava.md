@@ -111,3 +111,20 @@ That's it, we have successfully uploaded activities from Sports Tracker to
 Strava. You can check the uploaded activities at
 <https://www.strava.com/athlete/training>. If you would like to explore the
 Strava API more, check out <https://developers.strava.com/docs/reference/>.
+
+## Links that I found along the way
+
+### Tooling
+
+[stravacli](https://github.com/dlenski/stravacli) - Command-line client for Strava.
+
+[strava-uploader](https://github.com/barrald/strava-uploader) - personal
+project on GitHub that uploads activities from RunKeeper.
+
+[stravaweblib](https://github.com/pR0Ps/stravaweblib) - Provides all the functionality
+of the stravalib package and extends it using web scraping.
+
+### Other links
+
+stackoverflow discussion about the access token generation <https://stackoverflow.com/questions/52880434/>.
+Strava developer document describing API authentication. <https://developers.strava.com/docs/authentication/>.
