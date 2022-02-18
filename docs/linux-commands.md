@@ -543,6 +543,13 @@ Moving one directory from repoA to repoB with history -
 Move tag, presunout tag na jiny commit -
 <http://stackoverflow.com/questions/8044583/how-can-i-move-a-tag-on-a-git-branch-to-a-different-commit>
 
+Find all repositories with uncommited changes.
+
+```bash
+locate -r "\.git$" | sed 's/\.git$//' | grep -v cache | xargs -I _ sh -c \
+'if [ -n "$(git -C _ status --porcelain)" ]; then echo Changes in _ ;fi;'
+```
+
 ## Koji
 
 regenerace repa

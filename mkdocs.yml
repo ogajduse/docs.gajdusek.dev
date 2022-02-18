@@ -13,6 +13,8 @@ nav:
   - Packaging:
       - Getting packages from repository manually: packaging/getting-repo-packages.md
       - RPM Packaging: packaging/rpm-packaging.md
+  - My Projects:
+      - How to migrate activities from Sports Tracker to Strava: my_projects/how-to-migrate-from-sports-tracker-to-strava.md
 theme:
   name: "material"
 markdown_extensions:
