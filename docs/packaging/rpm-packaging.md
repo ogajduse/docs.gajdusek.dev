@@ -28,7 +28,7 @@ export VER_PREFIX=v
 
 cat << EOF
 # Rawhide
-fedpkg switch-branch master
+fedpkg switch-branch rawhide
 fedpkg pull --rebase
 wget https://github.com/$GH_OWNER/$PKG_NAME/archive/$VER_PREFIX$NEW_VER.tar.gz \
     -O /tmp/$PKG_NAME-$NEW_VER.tar.gz
@@ -40,7 +40,7 @@ fedpkg build
 
 # Fedora 34
 fedpkg switch-branch f34
-git merge master
+git merge rawhide
 fedpkg push
 fedpkg build
 fedpkg update --notes "Update to $PKG_NAME $NEW_VER" --bugs <bug-id> \
