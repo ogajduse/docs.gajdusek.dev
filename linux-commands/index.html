@@ -1,0 +1,1245 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal documentation site containging mostly braindumps.">
+      
+      
+        <meta name="author" content="Ondřej Gajdušek">
+      
+      
+      
+        <link rel="prev" href="../bash_help/">
+      
+      
+        <link rel="next" href="../monitoring/graphite/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Linux Commands - ogajduse's docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-commands" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ogajduse&#39;s docs" class="md-header__button md-logo" aria-label="ogajduse's docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ogajduse's docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ogajduse/docs.gajdusek.dev" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ogajduse/docs.gajdusek.dev
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ogajduse&#39;s docs" class="md-nav__button md-logo" aria-label="ogajduse's docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ogajduse's docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ogajduse/docs.gajdusek.dev" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ogajduse/docs.gajdusek.dev
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bash_help/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bash Help
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Linux Commands
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Linux Commands
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yumdnf-rpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      YUM/DNF, RPM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      GIT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koji" class="md-nav__link">
+    <span class="md-ellipsis">
+      Koji
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      BEAKER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    <span class="md-ellipsis">
+      SED
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/graphite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Packaging
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Packaging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packaging/getting-repo-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting packages from repository manually
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packaging/rpm-packaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RPM Packaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    My Projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            My Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../my_projects/how-to-migrate-from-sports-tracker-to-strava/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to migrate activities from Sports Tracker to Strava
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Foreman
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Foreman
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../foreman/discourse-api-key/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Discourse API Key Generator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#yumdnf-rpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      YUM/DNF, RPM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      GIT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koji" class="md-nav__link">
+    <span class="md-ellipsis">
+      Koji
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      BEAKER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    <span class="md-ellipsis">
+      SED
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="linux-commands">Linux commands</h1>
+<p>This document contains mainly brain dumps created at the moment I struggled to
+find the right command or set of commands to perform the desired action.
+Description is mainly in in Czech language, however the goal is to rewrite it to
+English.</p>
+<h2 id="yumdnf-rpm">YUM/DNF, RPM</h2>
+<p>Downgrades the specified packages to the highest of all known lower versions if
+possible. When version is given and is lower than version of installed package
+then it downgrades to target version</p>
+<div class="highlight"><pre><span></span><code>yum<span class="w"> </span>distribution-synchronization
+</code></pre></div>
+<p>Zobrazeni dostupnych repozitaru, repozitare zobrazeni</p>
+<div class="highlight"><pre><span></span><code>yum<span class="w"> </span>repolist<span class="w"> </span>all
+</code></pre></div>
+<p>Ktery balik nabizi prikaz gcc</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>provides<span class="w"> </span><span class="s1">&#39;*/gcc&#39;</span>
+</code></pre></div>
+<p>Downgradovat na starsi verze balicku</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>downgrade<span class="w"> </span>jmock-1.2.0
+</code></pre></div>
+<p>Hledani nainstalovaneho baliku</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-q<span class="w"> </span>jmock
+</code></pre></div>
+<p>zobrazi starsi verze balicku, package old version</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>list<span class="w"> </span>jmock<span class="w"> </span>--showduplicates
+</code></pre></div>
+<p>Zapnout repozitar aktivovat, enable repository</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>fedora-debuginfo
+</code></pre></div>
+<p>Install missing dependencies for building an RPM package</p>
+<div class="highlight"><pre><span></span><code>yum-builddep<span class="w"> </span>spacewalk-java-2.6.25-1.git.76.aede25c.fc24.src.rpm
+</code></pre></div>
+<p>Instalace baliku</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-ivh<span class="w"> </span>http://yum.spacewalkproject.org/nightly/Fedora/23/x86_64/spacewalk-repo-2.5-3.fc23.noarch.rpm
+</code></pre></div>
+<p>Instalovat specifickou verzi balicku
+<a href="http://unix.stackexchange.com/questions/151689/how-can-i-instruct-yum-to-install-a-specific-version-of-package-x">http://unix.stackexchange.com/questions/151689/how-can-i-instruct-yum-to-install-a-specific-version-of-package-x</a></p>
+<div class="highlight"><pre><span></span><code>yum<span class="w"> </span>--showduplicates<span class="w"> </span>list<span class="w"> </span>httpd
+yum<span class="w"> </span>install<span class="w"> </span>&lt;package<span class="w"> </span>name&gt;-&lt;version<span class="w"> </span>info&gt;<span class="w"> </span><span class="c1">#nekdy pozaduje i verzi</span>
+</code></pre></div>
+<p>Porovnani obsahu repozitaru, compare content repository...more in man</p>
+<div class="highlight"><pre><span></span><code>repoclosure<span class="w"> </span>-l<span class="w"> </span>beaker-Client<span class="w"> </span>-l<span class="w"> </span>epel<span class="w"> </span>-r<span class="w"> </span>spacewalk-client-nightly
+</code></pre></div>
+<p>Najit dependence k rpm, find dependencies for specific rpm</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-qpR<span class="w"> </span>checkpolicy-2.0.22-1.el6.x86_64.rpm
+</code></pre></div>
+<p>Zobrazit requires</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-qR<span class="w"> </span>python3-hwdata
+</code></pre></div>
+<p>Ziskat informace o nenainstalovanem baliku</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-qip<span class="w"> </span>foo.rpm
+</code></pre></div>
+<p>Ziskat informace o nenainstalovanem baliku</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-qi<span class="w"> </span>python3-dbus
+</code></pre></div>
+<p>Zobrazit seznam nainstalovanych baliku</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-qa
+yum<span class="w"> </span>list<span class="w"> </span>installed
+</code></pre></div>
+<p>Smazat balik bez dependenci, erase, delete package without dependencies</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-e<span class="w"> </span>--nodeps<span class="w"> </span><span class="s2">&quot;php-sqlite2-5.1.6-200705230937&quot;</span>
+</code></pre></div>
+<p>Zjistit ktery balik vlastni dany soubor, query package owning specified file</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-qf<span class="w"> </span>/sbin/rhnreg_ks
+</code></pre></div>
+<p>Ukazat requires pro nenainstalovany balik</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-qp<span class="w"> </span>--requires<span class="w"> </span>python3-hwdata-1.10.1-6.fc24.noarch.rpm
+rpm<span class="w"> </span>-qpR<span class="w"> </span>python3-hwdata-1.10.1-6.fc24.noarch.rpm
+</code></pre></div>
+<p>Ukazat requires pro nainstalovany balik</p>
+<div class="highlight"><pre><span></span><code>rpm<span class="w"> </span>-qR<span class="w"> </span>&lt;package&gt;
+dnf<span class="w"> </span>repoquery<span class="w"> </span>--requires<span class="w"> </span>vim-enhanced
+yum<span class="w"> </span>deplist<span class="w"> </span>&lt;package&gt;
+</code></pre></div>
+<p>Co dany balik poskytuje</p>
+<div class="highlight"><pre><span></span><code>repoquery<span class="w"> </span>--list<span class="w"> </span>rhnlib
+</code></pre></div>
+<p>To see which additional RPM packages are needed to satisfy the dependencies</p>
+<div class="highlight"><pre><span></span><code>repoquery<span class="w"> </span>--requires<span class="w"> </span>--resolve<span class="w"> </span>&lt;package&gt;
+</code></pre></div>
+<p>Historie instalaci daneho baliku</p>
+<div class="highlight"><pre><span></span><code>yum<span class="w"> </span><span class="nb">history</span><span class="w"> </span>package-list<span class="w"> </span>rhnlib*
+</code></pre></div>
+<p>yum log, hledani v logu instalaci</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/var/log/yum.log<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>rhnlib
+</code></pre></div>
+<p>Zobrazi dodatecne informace k baliku, additional info about package</p>
+<div class="highlight"><pre><span></span><code>yumdb<span class="w"> </span>info<span class="w"> </span>package_name
+yum<span class="w"> </span>info<span class="w"> </span>package_name…
+</code></pre></div>
+<p>Rozbalit rpm bez instalace</p>
+<div class="highlight"><pre><span></span><code>rpm2cpio<span class="w"> </span>checkpolicy-1.33.1-6.el5.x86_64.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-idmv
+</code></pre></div>
+<p>Instalace epel repa, installation of epel repository</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+rpm<span class="w"> </span>-Uvh<span class="w"> </span>epel-release-6*.rpm
+</code></pre></div>
+<p>Zapnuti repa subscription-manager</p>
+<div class="highlight"><pre><span></span><code>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--enable<span class="o">=</span>rhel-<span class="k">$(</span>rpm<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;%{rhel}&#39;</span><span class="k">)</span>-server-optional-rpms
+</code></pre></div>
+<h2 id="vim">VIM</h2>
+<p>Hledani v man manpage, manual, search (stisknout "/" a psat hledany vyraz) Dalsi
+vysledek -&gt; stisknout "n", predchozi vysledek "N"</p>
+<p>replace, nahrazeni textu <code>:%s/\&lt;foo\&gt;/bar/gc</code> - Change only whole words exactly
+matching 'foo' to 'bar'; ask for confirmation. <code>:%s/foo/bar/g</code> - Find each
+occurrence of 'foo' (in all lines), and replace it with 'bar'.</p>
+<h2 id="git">GIT</h2>
+<p>Zobrazeni rozdilu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff
+</code></pre></div>
+<p>Pridani verze v interaktivnim modu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>-i<span class="w"> </span>spacecmd/src/lib/kickstart.py
+</code></pre></div>
+<p>Rozdily v pripravenem ke commitu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>--cached<span class="w"> </span><span class="c1">#--cached == --staged</span>
+</code></pre></div>
+<p>Potvrzeni zmen</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit
+</code></pre></div>
+<p>Zmena jmena v global configu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s1">&#39;Ondrej Gajdusek&#39;</span>
+</code></pre></div>
+<p>Modifikovani autora posledniho commitu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--author<span class="o">=</span><span class="s1">&#39;Ondrej Gajdusek &lt;ogajduse@redhat.com&gt;&#39;</span>
+</code></pre></div>
+<p>Modifikovani posledniho commitu - vsech souboru</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>-a
+</code></pre></div>
+<p>Ziskani obsahu remote repozitare</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>--rebase
+</code></pre></div>
+<p>Pushnuti vetve na github??</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>setsoftwaredetails
+</code></pre></div>
+<p>master==origin, revert posledniho commitu, --hard param. Zpusobi uplnou ztratu
+commitu/snimku</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1
+</code></pre></div>
+<p>Revert posledniho commitu, commit ponecha obsah v casti non staged</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>HEAD~1
+</code></pre></div>
+<p>Reset vetve na commit 0d1d</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>0d1d7fc32
+</code></pre></div>
+<p>Situace, kdy je remote branch napred oproti lokalni, provedu hard reset na
+starsi commit, remote je ted ahead, musim zmenit FETCH_HEAD</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>FETCH_HEAD<span class="w"> </span>--hard
+</code></pre></div>
+<p>Hledani v gitu, git hledani, git search,</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>grep<span class="w"> </span>kickstart_
+</code></pre></div>
+<p>Hledani retezec obsahujici RHN v souborech s priponou .java</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;*.* RHN&#39;</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;*.java&#39;</span>
+</code></pre></div>
+<p>Pushnuti vetve na GitHub, ignoruje konflikty</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>--force
+</code></pre></div>
+<p>Zobrazi remote repozitare, URL, kterou má Git uloženou pro zkrácený název, který
+si přejete rozepsat</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>-v
+</code></pre></div>
+<p>Cherry pick commitu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>cherry-pick
+</code></pre></div>
+<p>Vetev neni na stejne urovni jako master, udelej -&gt;</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>master
+</code></pre></div>
+<p><a href="http://stackoverflow.com/questions/52704/how-do-you-discard-unstaged-changes-in-git">http://stackoverflow.com/questions/52704/how-do-you-discard-unstaged-changes-in-git</a>
+How do I discard changes in my working copy that are not in the index? For a
+specific file use:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>path/to/file/to/revert
+</code></pre></div>
+<p>For all unstaged files use:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>.
+</code></pre></div>
+<p>Make sure to include the period (dot) at the end.</p>
+<p>Revert specific file, revert one file
+<a href="https://stackoverflow.com/questions/215718/reset-or-revert-a-specific-file-to-a-specific-revision-using-git">https://stackoverflow.com/questions/215718/reset-or-revert-a-specific-file-to-a-specific-revision-using-git</a></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>c5f567<span class="w"> </span>--<span class="w"> </span>file1/to/restore<span class="w"> </span>file2/to/restore
+</code></pre></div>
+<p>Delete untracked files, smazani netrackovanych/neverzovanych souboru</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clean<span class="w"> </span>-n<span class="w"> </span><span class="c1"># zobrazi, co se smaze</span>
+git<span class="w"> </span>clean<span class="w"> </span>-f<span class="w"> </span><span class="c1"># smaze</span>
+</code></pre></div>
+<p>Smazani tagu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>tag<span class="w"> </span>-d<span class="w"> </span>spacecmd-2.6.7-1
+</code></pre></div>
+<p>Smazani tagu z remote, delete remote tag</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>:refs/tags/spacecmd-2.6.7-1
+</code></pre></div>
+<p>gitk refresh - <code>Shift+F5</code></p>
+<p>Commit pri kterem se pri editovani souboru vypise nejen status ale i diff</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-v
+</code></pre></div>
+<p>Git do revize automaticky zahrne každý soubor, který je sledován Zcela tak
+odpadá potřeba zadávat příkaz git add</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-a
+</code></pre></div>
+<p>Zobrazí rozdíly diff provedené v každé revizi</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>-p
+</code></pre></div>
+<p>Zobrazi posledni 2 commity</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>-2
+</code></pre></div>
+<p>Zobrazí některé stručné statistiky pro každou revizi</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--stat
+</code></pre></div>
+<p>Zobrazi logy od nebo do urciteho data</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--until<span class="w"> </span><span class="c1">#--since</span>
+</code></pre></div>
+<p>Hledani v logu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--all-match<span class="w"> </span><span class="c1">#--author, --grep, --commiter</span>
+</code></pre></div>
+<p>Stylovani logu, vypis pouze commit message -
+<a href="https://www.kernel.org/pub/software/scm/git/docs/git-log.html#_pretty_formats">https://www.kernel.org/pub/software/scm/git/docs/git-log.html#_pretty_formats</a></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--pretty<span class="o">=</span>format:<span class="s2">&quot;%s&quot;</span>
+</code></pre></div>
+<p>Odstrani referenci na vzdaleny repozitar</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>rm<span class="w"> </span>&lt;název_repozitare&gt;
+</code></pre></div>
+<p>Zobrazeni urcite mnoziny tagu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>tag<span class="w"> </span>-l<span class="w"> </span><span class="s1">&#39;spacecmd*&#39;</span>
+</code></pre></div>
+<p>Pridani anotovane znacky</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v0.1<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;alpha verze&#39;</span>
+</code></pre></div>
+<p>Dodatecne pridani tagu k existujicimu commitu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v1.2<span class="w"> </span>9fceb02
+</code></pre></div>
+<p>Delete tag from remote, delete remote tag, smazat vzdaleny tag -
+<a href="https://nathanhoad.net/how-to-delete-a-remote-git-tag">https://nathanhoad.net/how-to-delete-a-remote-git-tag</a></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>tag<span class="w"> </span>-d<span class="w"> </span><span class="m">12345</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>:refs/tags/12345
+</code></pre></div>
+<p>Pushnuti znacky na remote repo</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="o">[</span>název<span class="w"> </span>značky<span class="o">]</span>
+</code></pre></div>
+<p>Pushnuti vsech znacek na remote repo</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags
+</code></pre></div>
+<p>Pridani aliasu pro prikazy git xxx</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.co<span class="w"> </span>checkout
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.ci<span class="w"> </span>commit
+</code></pre></div>
+<p>Zobrazi posledni commit/revizi na kazde vetvi</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-v
+</code></pre></div>
+<p>Které větve už byly začleněny do větve, na níž se nacházím</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>--merged
+</code></pre></div>
+<p>Zobrazit větve, které obsahují dosud nezačleněnou práci</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>--no-merged
+</code></pre></div>
+<p>Prejmenovat vetev If you want to rename a branch while pointed to any branch,
+do:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>&lt;oldname&gt;<span class="w"> </span>&lt;newname&gt;
+</code></pre></div>
+<p>If you want to rename the current branch, you can do:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>&lt;newname&gt;
+</code></pre></div>
+<p>Smazat vetev na remote repozitari</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>:the_remote_branch
+</code></pre></div>
+<p>Pushnuti zmen, konkretne tagu</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>:refs/tags/spacewalk-java-2.7.12-1
+</code></pre></div>
+<p>Forked repo, forknute repo, jak udrzet updated s upstreamem -
+<a href="https://gist.github.com/CristinaSolana/1885435">https://gist.github.com/CristinaSolana/1885435</a></p>
+<p>How to merge two branches in different repositories, local repositories -
+<a href="http://stackoverflow.com/questions/3402599/how-do-you-merge-two-git-branches-that-are-in-different-local-repos-folders">http://stackoverflow.com/questions/3402599/how-do-you-merge-two-git-branches-that-are-in-different-local-repos-folders</a></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># switch to repo A</span>
+
+<span class="nb">cd</span><span class="w"> </span>folder_a
+
+<span class="c1"># Add repo B as a remote repository</span>
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>folderb<span class="w"> </span>/path/to/folder_b
+
+<span class="c1"># Pull B&#39;s master branch into a local branch named &#39;b&#39;</span>
+git<span class="w"> </span>pull<span class="w"> </span>folderb<span class="w"> </span>master:b
+
+<span class="c1"># Merge b into A&#39;s master branch</span>
+git<span class="w"> </span>merge<span class="w"> </span>b
+
+<span class="c1"># Switch to repo B</span>
+<span class="nb">cd</span><span class="w"> </span>../folder_b
+
+<span class="c1"># Add repo A as a remote repository</span>
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>foldera<span class="w"> </span>/path/to/folder_a
+
+<span class="c1"># Pull the resulting branch into repo B&#39;s master branch</span>
+git<span class="w"> </span>pull<span class="w"> </span>foldera<span class="w"> </span>master:master
+</code></pre></div>
+<p>Reference first commit, initial commit, prvni commit</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rev-list<span class="w"> </span>--max-parents<span class="o">=</span><span class="m">0</span><span class="w"> </span>HEAD
+</code></pre></div>
+<p>Moving one directory from repoA to repoB with history -
+<a href="http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/">http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/</a></p>
+<p>Move tag, presunout tag na jiny commit -
+<a href="http://stackoverflow.com/questions/8044583/how-can-i-move-a-tag-on-a-git-branch-to-a-different-commit">http://stackoverflow.com/questions/8044583/how-can-i-move-a-tag-on-a-git-branch-to-a-different-commit</a></p>
+<p>Find all repositories with uncommited changes.</p>
+<div class="highlight"><pre><span></span><code>locate<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;\.git</span>$<span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/\.git$//&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>cache<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-I<span class="w"> </span>_<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;if [ -n &quot;$(git -C _ status --porcelain)&quot; ]; then echo Changes in _ ;fi;&#39;</span>
+</code></pre></div>
+<h2 id="koji">Koji</h2>
+<p>regenerace repa</p>
+<div class="highlight"><pre><span></span><code>koji<span class="w"> </span>regen-repo<span class="w"> </span>&lt;buid<span class="w"> </span>tag&gt;
+</code></pre></div>
+<p>Build baliku pro specificky build target</p>
+<div class="highlight"><pre><span></span><code>koji<span class="w"> </span>build<span class="w"> </span>spacewalk-nightly-fedora25<span class="w"> </span>git://git@github.com/spacewalkproject/spacewalk.git/#spacewalk-branding-2.7.2-1
+</code></pre></div>
+<h2 id="beaker">BEAKER</h2>
+<p>Prodlouzeni casu u beaker masiny</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># posledni cislo je cislo tasku u daneho jobu</span>
+bkr<span class="w"> </span>watchdog-extend<span class="w"> </span>--by<span class="w"> </span><span class="k">$(</span><span class="w"> </span>expr<span class="w"> </span><span class="m">3600</span><span class="w"> </span><span class="se">\*</span><span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="se">\*</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="k">)</span><span class="w"> </span><span class="m">43476098</span>
+</code></pre></div>
+<p>Extend test time</p>
+<div class="highlight"><pre><span></span><code>rhts-test-checkin<span class="w"> </span><span class="m">127</span>.0.0.1:7086<span class="w"> </span>bkrsystemfqdn.com<span class="w"> </span><span class="m">1400356</span><span class="w"> </span><span class="se">\</span>
+distribution/reservesys<span class="w"> </span>120h<span class="w"> </span><span class="m">42970190</span>
+</code></pre></div>
+<h2 id="sed">SED</h2>
+<p>Replace text in file sed, replace link sed -
+<a href="http://stackoverflow.com/a/1583282/6239929">http://stackoverflow.com/a/1583282/6239929</a></p>
+<p>Strip package version from NEVRA to get only package name</p>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/\([^.]*\).*/\1/&#39;</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/\(.*\)-.*/\1/&#39;</span>
+</code></pre></div>
+<p>Smazani radku se specifickym obsahem, remove line with specific contents -
+<a href="http://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-containing-a-specific-string">http://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-containing-a-specific-string</a></p>
+<p>To remove the line and print the output to standard out:</p>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span><span class="s1">&#39;/pattern to match/d&#39;</span><span class="w"> </span>./infile
+</code></pre></div>
+<p>To directly modify the file:</p>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;/pattern to match/d&#39;</span><span class="w"> </span>./infile
+</code></pre></div>
+<p>To directly modify the file (and create a backup):</p>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i.bak<span class="w"> </span><span class="s1">&#39;/pattern to match/d&#39;</span><span class="w"> </span>./infile
+</code></pre></div>
+<p>For Mac OS X users:</p>
+<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="s1">&#39;/pattern/d&#39;</span><span class="w"> </span>./infile
+</code></pre></div>
+<h2 id="other">Other</h2>
+<p>Odstraneni slozky i s obsahem It deletes all files and folders contained in the
+lampp directory.</p>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>lampp
+</code></pre></div>
+<p>Zobrazit vypis prikazu , ktere bezi ve scriptu, command script</p>
+<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span>-i
+</code></pre></div>
+<p>Ukonci script skript, kdyz neco failne</p>
+<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span>-e
+</code></pre></div>
+<p>Zmena barvy fontu promptu -
+<a href="http://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/">http://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/</a></p>
+<p>Barvy v bashi - <a href="http://misc.flogisoft.com/bash/tip_colors_and_formatting">http://misc.flogisoft.com/bash/tip_colors_and_formatting</a></p>
+<p>NetworkManager text user interface (TUI)</p>
+<div class="highlight"><pre><span></span><code>nmtui
+</code></pre></div>
+<p>Zobrazi posledni cast souboru. Output the last part of files</p>
+<div class="highlight"><pre><span></span><code>tail
+</code></pre></div>
+<p>Silence user input, heslo password zadani hesla</p>
+<div class="highlight"><pre><span></span><code><span class="nb">read</span><span class="w"> </span>-s
+</code></pre></div>
+<p>Hledani souboru, search file</p>
+<div class="highlight"><pre><span></span><code>locate
+</code></pre></div>
+<p>Updatovani databaze pro prikaz locate, update a database for locate</p>
+<div class="highlight"><pre><span></span><code>updatedb
+</code></pre></div>
+<p>Zjisteni rozdilnosti mezi dvemi soubory</p>
+<div class="highlight"><pre><span></span><code>diff<span class="w"> </span>s1<span class="w"> </span>s2
+</code></pre></div>
+<p>Zobrazeni prvniho radku souboru</p>
+<div class="highlight"><pre><span></span><code>head<span class="w"> </span>-1<span class="w"> </span>file
+</code></pre></div>
+<p>Zabit proces v cmd - ctrl+D</p>
+<p>Prenos souboru pres ssh -
+<a href="https://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/s2-openssh-using-scp.html">https://docs.fedoraproject.org/en-US/Fedora/12/html/Deployment_Guide/s2-openssh-using-scp.html</a></p>
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>testscr.sh<span class="w"> </span>root@your.awesome.system.com:~/
+</code></pre></div>
+<p>Prenos vice souboru z local stanice do remote</p>
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>/home/ogajduse/spacewalk/spacecmd/src/lib/<span class="o">{</span>utils,misc,system<span class="o">}</span>.py<span class="w"> </span>root@your.awesome.system.com:/usr/lib/python2.6/site-packages/spacecmd/
+</code></pre></div>
+<p>Jak zjistit ssh klic Pokud ho mas vygenerovany, tak:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>~/.ssh/id_rsa.pub
+<span class="c1"># Pokud ho nemas vygenerovany, tak:</span>
+$<span class="w"> </span>ssh-keygen
+</code></pre></div>
+<p>SSH permissions for id_* files -
+<a href="http://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open-error">http://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open-error</a></p>
+<p>SSH client config file - <a href="https://linux.die.net/man/5/ssh_config">https://linux.die.net/man/5/ssh_config</a></p>
+<p>Zmenit heslo soukromeho klice ssh, change ssh key password -
+<a href="http://www.cyberciti.biz/faq/howto-ssh-changing-passphrase/">http://www.cyberciti.biz/faq/howto-ssh-changing-passphrase/</a></p>
+<p>Which distribution am I using, linux version, release -
+<a href="https://superuser.com/questions/80251/how-to-know-which-linux-distribution-im-using?newreg=c51cdaabc57b48dc86a555101d0f6471">https://superuser.com/questions/80251/how-to-know-which-linux-distribution-im-using?newreg=c51cdaabc57b48dc86a555101d0f6471</a></p>
+<p>Zjisteni verze RHELu, verzi rhel zjistit</p>
+<div class="highlight"><pre><span></span><code>lsb_release<span class="w"> </span>-i<span class="w"> </span>-r
+</code></pre></div>
+<p>Sekla sessiona ssh</p>
+<blockquote>
+<p>enter tilda tecka</p>
+</blockquote>
+<p>Kopirovani id na remote</p>
+<div class="highlight"><pre><span></span><code>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>root@ts.unitedclans.tk
+</code></pre></div>
+<p>Zobraz volne misto na disku, free disk space</p>
+<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h
+</code></pre></div>
+<p>Reloadovat bashrc config bez odhlaseni</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Zjistit typ souboru, filetype, file type</p>
+<div class="highlight"><pre><span></span><code>file<span class="w"> </span>./file
+</code></pre></div>
+<p>Konverze timestamp conversion to time</p>
+<div class="highlight"><pre><span></span><code>date<span class="w"> </span>-d<span class="w"> </span>@&lt;timestamp&gt;
+</code></pre></div>
+<p>Zjistit plnou cestu prikazu (shell), show the full path of (shell) commands</p>
+<div class="highlight"><pre><span></span><code>which<span class="w"> </span>spacewalk-service
+<span class="nb">type</span><span class="w"> </span>-p<span class="w"> </span>spacewalk-service
+</code></pre></div>
+<p>List block devices, vylistovat blokova zarizeni</p>
+<div class="highlight"><pre><span></span><code>lsblk
+</code></pre></div>
+<p>Package cache cleanup (PackageKit, packagekit cache removal) -
+<a href="https://unix.stackexchange.com/questions/265755/fedora-23-can-i-safely-delete-files-in-var-cache-packagekit-metadata-updates">https://unix.stackexchange.com/questions/265755/fedora-23-can-i-safely-delete-files-in-var-cache-packagekit-metadata-updates</a></p>
+<div class="highlight"><pre><span></span><code>pkcon<span class="w"> </span>refresh<span class="w"> </span>force<span class="w"> </span>-c<span class="w"> </span>-1
+</code></pre></div>
+<p>Run tar, gzip on all cores, pigz -
+<a href="https://stackoverflow.com/questions/12313242/utilizing-multi-core-for-targzip-bzip-compression-decompression">https://stackoverflow.com/questions/12313242/utilizing-multi-core-for-targzip-bzip-compression-decompression</a></p>
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-c<span class="w"> </span>--use-compress-program<span class="o">=</span>pigz<span class="w"> </span>-f<span class="w"> </span>tar.file<span class="w"> </span>dir_to_zip
+</code></pre></div>
+<p>Decompress via pigz</p>
+<div class="highlight"><pre><span></span><code>pigz<span class="w"> </span>-dc<span class="w"> </span>target.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>xf<span class="w"> </span>-
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
